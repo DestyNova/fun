@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metronome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+      .body-long {
+        height: 100vh;
+      }
+
+      .field.is-horizontal {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-link {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body class="body-long has-background-warning-light">
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Metronome</h1>
+        <hr>
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label">Tempo (BPM)</label>
+          </div>
+          <div class="field-body">
+            <div class="field has-addons">
+              <div class="control">
+                <input
+                  class="input"
+                  type="number"
+                  min="20"
+                  max="320"
+                  maxlength="4"
+                  step="1"
+                  value="120"
+                  id="tempoInput"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Every</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <div class="select">
+                  <select id="everySelect">
+                    <option value="1">Every beat</option>
+                    <option value="2">Every 2nd beat</option>
+                    <option value="3">Every 3rd beat</option>
+                    <option value="4">Every 4th beat</option>
+                    <option value="5">Every 5th beat</option>
+                    <option value="6">Every 6th beat</option>
+                    <option value="7">Every 7th beat</option>
+                    <option value="8">Every 8th beat</option>
+                  </select>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label"></div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <button class="button is-primary is-rounded" id="startStopButton">
+                  Start
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="contact-link">
+        <p><button class="button is-warning is-rounded"><a href="mailto:denpashogai@gmail.com">Questions?</a></button></p>
+      </div>
+    </footer>
+
+    <script src="metronome.js"></script>
+  </body>
+</html>
