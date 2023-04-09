@@ -17,9 +17,9 @@ function playClick() {
 	oscillator.connect(gainNode);
 	gainNode.connect(audioCtx.destination);
 	oscillator.type = "triangle";
-	gainNode.gain.value = 0.1;
+	gainNode.gain.value = 0.7;
 	oscillator.start();
-	gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+	gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
 	oscillator.stop(audioCtx.currentTime + 0.05);
 }
 
@@ -45,16 +45,16 @@ function startMetronome() {
 		tempoInput.value = minTempo.toString();
 	}
 
-	console.log(`tempo is ${tempo}`);
 	every = parseInt(everySelect.value);
 	startStopButton.innerText = "Stop";
-	timerId = setInterval(function() {
-		counter++;
-		if (counter % every === 0) {
-			playClick();
-			counter = 0;
-		}
-	}, 60000 / tempo);
+	timerId = setInterval(nextTick, 60000 / tempo);
+	nextTick();
+}
+
+function nextTick() {
+	if (counter++ % every === 0) {
+		playClick();
+	}
 }
 
 function stopMetronome() {
