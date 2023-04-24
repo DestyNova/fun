@@ -1,4 +1,4 @@
-# Metronom
+# Metron
 
 A minimal custom metronome that plays a click the HTML5 audio synthesis API.
 
